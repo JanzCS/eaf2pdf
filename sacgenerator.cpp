@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include "csv.hpp"
 
 using namespace std;
 
@@ -41,20 +42,35 @@ int main(int argc, char *argv[])
         cout << "No filename entered." << endl;
         return 1;
     }
+    csv::CSVReader reader(argv[1]);
     ifstream inFile(argv[1]);
-    if (!inFile)
+    // if (reader.empty())
+    // {
+    //     cout << "Filed could not be found or opened. Try again." << endl;
+    //     return 1;
+    // }
+    csv::CSVRow currentRow;
+    while (reader.read_row(currentRow))
     {
-        cout << "Filed could not be found or opened. Try again." << endl;
-        return 1;
-    }
-    EafSubmission submission;
-    while (inFile >> submission)
-    {
-        eafs.push_back(submission);
-    }
-    for (int i = 0; i < eafs.size(); i++)
-    {
-        cout << eafs.at(i) << endl;
+            cout << currentRow[1].get<>() << currentRow[2].get<>() << endl // first and last name
+            << currentRow[3].get<>() << endl //email 
+            << currentRow[13].get<>() << endl // event name
+            << currentRow[14].get<>() << endl // start date
+            << currentRow[15].get<>() << endl // start time
+            << currentRow[16].get<>() << endl // end date
+            << currentRow[17].get<>() << endl // end time
+            << currentRow[18].get<>() << endl // location
+            << currentRow[19].get<>() << endl // group name
+            << currentRow[21].get<>() << endl // sac commissioner
+            << currentRow[24].get<>() << endl // event name
+            << currentRow[26].get<>() << endl // estimated attendance
+            << currentRow[27].get<>() << endl // est. cost
+            << currentRow[28].get<>() << endl // sac request
+            << currentRow[29].get<>() << endl // risk factors
+            << currentRow[30].get<>() << endl // non gu participants
+            << currentRow[31].get<>() << endl // event description
+            << currentRow[32].get<>() << endl; // funding explanation
+        cout << endl << endl << endl;
     }
 }
 
