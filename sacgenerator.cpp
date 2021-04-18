@@ -11,8 +11,6 @@ class EafSubmission
     public:
         friend ostream &operator<<(ostream &out, const EafSubmission &obj);
         friend istream &operator>>(istream &in, EafSubmission &obj);
-    
-    private:
         string submitterFirstName;
         string submitterLastName;
         string submitterEmail;
@@ -32,6 +30,9 @@ class EafSubmission
         string nonGuParticipants;
         string eventDescription;
         string fundingDescription;
+    
+    private:
+
 };
 
 int main(int argc, char *argv[])
@@ -52,25 +53,41 @@ int main(int argc, char *argv[])
     csv::CSVRow currentRow;
     while (reader.read_row(currentRow))
     {
-            cout << currentRow[1].get<>() << currentRow[2].get<>() << endl // first and last name
-            << currentRow[3].get<>() << endl //email 
-            << currentRow[13].get<>() << endl // event name
-            << currentRow[14].get<>() << endl // start date
-            << currentRow[15].get<>() << endl // start time
-            << currentRow[16].get<>() << endl // end date
-            << currentRow[17].get<>() << endl // end time
-            << currentRow[18].get<>() << endl // location
-            << currentRow[19].get<>() << endl // group name
-            << currentRow[21].get<>() << endl // sac commissioner
-            << currentRow[24].get<>() << endl // event name
-            << currentRow[26].get<>() << endl // estimated attendance
-            << currentRow[27].get<>() << endl // est. cost
-            << currentRow[28].get<>() << endl // sac request
-            << currentRow[29].get<>() << endl // risk factors
-            << currentRow[30].get<>() << endl // non gu participants
-            << currentRow[31].get<>() << endl // event description
-            << currentRow[32].get<>() << endl; // funding explanation
-        cout << endl << endl << endl;
+        EafSubmission currentSubmission;
+        currentSubmission.submitterFirstName = currentRow[1].get<>();
+        currentSubmission.submitterLastName = currentRow[2].get<>();
+        currentSubmission.submitterEmail = currentRow[3].get<>();
+        currentSubmission.submissionDate = currentRow[7].get<>();
+        currentSubmission.eventName = currentRow[13].get<>();
+        currentSubmission.eventStartDate = currentRow[14].get<>();
+        currentSubmission.eventStartTime = currentRow[15].get<>();
+        currentSubmission.eventEndDate = currentRow[16].get<>();
+        currentSubmission.eventEndTime = currentRow[17].get<>();
+        currentSubmission.eventLocation = currentRow[18].get<>();
+        currentSubmission.groupName = currentRow[19].get<>();
+        currentSubmission.groupSacCommissioner = currentRow[21].get<>();
+        currentSubmission.estimatedAttendance = currentRow[26].get<>();
+        currentSubmission.estimatedCost = currentRow[27].get<>();
+        currentSubmission.SacFundingRequested = currentRow[28].get<>();
+        currentSubmission.RiskFactors = currentRow[29].get<>();
+        currentSubmission.nonGuParticipants = currentRow[30].get<>();
+        currentSubmission.eventDescription = currentRow[31].get<>();
+        currentSubmission.fundingDescription = currentRow[32].get<>();
+
+        cout << "## " << currentSubmission.eventName << endl << endl;
+        cout << "### " << currentSubmission.groupName << endl << endl;
+        cout << "### Submitted by " << endl << currentSubmission.submitterFirstName << " " << currentSubmission.submitterLastName << " - " << currentSubmission.submitterEmail << " on " << currentSubmission.submissionDate << endl << endl;
+        cout << "### Sac Commissioner" << endl << currentSubmission.groupSacCommissioner << endl << endl;
+        cout << "#### Date" << endl << currentSubmission.eventStartDate << " " << currentSubmission.eventStartTime << " - " << currentSubmission.eventEndDate << " " << currentSubmission.eventEndTime << endl << endl;
+        cout << "#### Location" << endl << currentSubmission.eventLocation << endl << endl;
+        cout << "#### Risk Factors" << endl << currentSubmission.RiskFactors << endl << endl;
+        cout << "#### Estimated Attendance" << endl << currentSubmission.estimatedAttendance << endl << endl;
+        cout << "#### Estimated Cost" << endl << currentSubmission.estimatedCost << endl << endl;
+        cout << "#### SAC Funding Requested" << endl << currentSubmission.SacFundingRequested << endl << endl;
+        cout << "#### Event Description" << endl << currentSubmission.eventDescription << endl << endl;
+        cout << "#### Funding Explanation" << endl << currentSubmission.fundingDescription;
+
+        cout << endl << endl << "\\pagebreak" << endl << endl;
     }
 }
 
