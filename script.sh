@@ -1,6 +1,6 @@
 #!/bin/bash
 tmpfile=$(mktemp)
-./a.out $1 > $tmpfile
+./eaf2pdf $1 > $tmpfile
 if [ "$2" = 'pdf' ];
 then
     pandoc $tmpfile -o output.pdf
