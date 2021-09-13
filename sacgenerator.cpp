@@ -57,29 +57,29 @@ int main(int argc, char *argv[])
         currentSubmission.submitterFirstName = currentRow[1].get<>();
         currentSubmission.submitterLastName = currentRow[2].get<>();
         currentSubmission.submitterEmail = currentRow[3].get<>();
-        currentSubmission.submissionDate = currentRow[7].get<>();
-        currentSubmission.eventName = currentRow[13].get<>();
-        currentSubmission.eventStartDate = currentRow[14].get<>();
-        currentSubmission.eventStartTime = currentRow[15].get<>();
-        currentSubmission.eventEndDate = currentRow[16].get<>();
-        currentSubmission.eventEndTime = currentRow[17].get<>();
+        currentSubmission.submissionDate = currentRow[8].get<>();
+        currentSubmission.eventName = currentRow[19].get<>();
+        currentSubmission.eventStartDate = currentRow[20].get<>();
+        currentSubmission.eventStartTime = currentRow[20].get<>();
+        currentSubmission.eventEndDate = currentRow[20].get<>();
+        currentSubmission.eventEndTime = currentRow[20].get<>();
         currentSubmission.eventLocation = currentRow[18].get<>();
-        currentSubmission.groupName = currentRow[19].get<>();
-        currentSubmission.groupSacCommissioner = currentRow[21].get<>();
-        currentSubmission.estimatedAttendance = currentRow[26].get<>();
-        currentSubmission.estimatedCost = currentRow[27].get<>();
-        currentSubmission.SacFundingRequested = currentRow[28].get<>();
-        currentSubmission.RiskFactors = currentRow[29].get<>();
-        currentSubmission.nonGuParticipants = currentRow[30].get<>();
-        currentSubmission.eventDescription = currentRow[31].get<>();
-        currentSubmission.fundingDescription = currentRow[32].get<>();
+        currentSubmission.groupName = currentRow[15].get<>();
+        currentSubmission.groupSacCommissioner = currentRow[16].get<>();
+        currentSubmission.estimatedAttendance = currentRow[21].get<>();
+        currentSubmission.estimatedCost = currentRow[22].get<>();
+        currentSubmission.SacFundingRequested = currentRow[23].get<>();
+        currentSubmission.RiskFactors = currentRow[24].get<>();
+        currentSubmission.nonGuParticipants = currentRow[25].get<>();
+        currentSubmission.eventDescription = currentRow[26].get<>();
+        currentSubmission.fundingDescription = currentRow[27].get<>();
 
         cout << "## " << currentSubmission.eventName << endl << endl;
         cout << "### " << currentSubmission.groupName << endl << endl;
         cout << "### Submitted by " << endl << currentSubmission.submitterFirstName << " " << currentSubmission.submitterLastName << " - " << currentSubmission.submitterEmail << " on " << currentSubmission.submissionDate << endl << endl;
         cout << "### Sac Commissioner" << endl << currentSubmission.groupSacCommissioner << endl << endl;
-        cout << "#### Date" << endl << currentSubmission.eventStartDate << " " << currentSubmission.eventStartTime << " - " << currentSubmission.eventEndDate << " " << currentSubmission.eventEndTime << endl << endl;
-        cout << "#### Location" << endl << currentSubmission.eventLocation << endl << endl;
+        cout << "#### Date" << endl << currentSubmission.eventStartDate << endl << endl;
+        // this was removed in the new survey? cout << "#### Location" << endl << currentSubmission.eventLocation << endl << endl;
         cout << "#### Risk Factors" << endl << currentSubmission.RiskFactors << endl << endl;
         cout << "#### Estimated Attendance" << endl << currentSubmission.estimatedAttendance << endl << endl;
         cout << "#### Estimated Cost" << endl << currentSubmission.estimatedCost << endl << endl;
@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
         cout << "#### Event Description" << endl << currentSubmission.eventDescription << endl << endl;
         cout << "#### Funding Explanation" << endl << currentSubmission.fundingDescription;
 
-        cout << endl << endl << "\\pagebreak" << endl << endl;
+        cout << endl << endl << "\\newpage" << endl << endl;
     }
 }
 
